@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Best Buy
+{% endblock %}
+
+{% block main %}
+
+<br></br>
+<div align=center>
+
+<div class="imagebl">
+<a  href="{{ url_for('gallery2') }}" align=center>
+  <img class="imageborder" src={{ product2['image'] }} alt="Computer">
+</a>
+
+
+<a href="{{ url_for('gallery') }}" align=center>
+  <img class="imageborder" src={{ product1['image'] }} alt="Health">
+</a>
+</div>
+<div></div>
+<div style="color: #2780E3"align=center><h1><b><b>Click to choose</b></b></h1></div>
+</div>
+
+{% endblock %}

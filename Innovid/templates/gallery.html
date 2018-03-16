@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Best Buy
+{% endblock %}
+
+{% block main %}
+<br></br>
+<div class="container">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-item active">
+    <center>
+        <h1><b>{{ picture['name'] }}</b></h1>
+    </center>
+
+    <div></div>
+
+    <br></br>
+
+    <!--<div style="float:left" align='center'>-->
+    <div class=row>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-2">
+            <a href="{{ url_for('gallery3') }}" class="previous"> &laquo; Previous </a>
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-2">
+        <a href="{{ url_for('gallery4') }}" class="next">Next &raquo;</a>
+        </div>
+
+        <div class="col-lg-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1">
+
+        </div>
+        <div class="col-lg-5" align='center'>
+            <a class='imagebl' href="{{ url_for('gallery') }}">
+                <img src= {{ picture['image'] }} alt="Computer" styles="height:75%;width:75%">
+            </a>
+        </div>
+        <!--</div>-->
+        <div class="col-lg-5">
+            <div>
+                <h1><b>${{ picture['regularPrice'] }}</b></h1>
+                <div></div>
+                <p>
+                {{ picture['longDescription'] }}
+                </p>
+
+                <a href={{ picture['url'] }} style="background-color:orange; color:white" class="btn btn-default">SHOP NOW</a>
+            </div>
+        </div>
+        <div class="col-lg-1">
+
+        </div>
+    </div>
+</div>
+{% for product in products[1:] %}
+<div class="carousel-item">
+    <center>
+        <h1><b>{{ product['name'] }}</b></h1>
+    </center>
+
+    <div></div>
+
+    <br></br>
+
+    <!--<div style="float:left" align='center'>-->
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3" align='center'>
+            <a class='imagebl' href="{{ url_for('gallery') }}">
+                <img src= {{ product['image'] }} alt="Computer">
+            </a>
+        </div>
+        <!--</div>-->
+        <div class="col-lg-3">
+            <div>
+                <h1><b>${{ product['regularPrice'] }}</b></h1>
+                <div></div>
+                <p>
+                {{ product['longDescription'] }}
+                </p>
+
+                <a href={{ product['url'] }} style="background-color:orange; color:white" class="btn btn-default">SHOP NOW</a>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+
+{% endfor %}
+
+    <a class="left carousel-control" href="#myCarousel" role="button">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+</div>
+{% endblock %}
